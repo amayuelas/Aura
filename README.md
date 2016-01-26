@@ -6,4 +6,6 @@ The aim of the hackathon was to develop some applications of the Internet of Thi
 I developed all the parts needed to get the information from the Thinking blocks provided by Telefonica. There are some sensors of humidity, temperature, brightness, etc which connect automatically to the web.
 Plus, these blocks also alert of the possibility to suffer migraine in a room by emitting ligth green, yellow or red depending on the room conditions.
 
-You can find it all in ./Website/tthings.html where there are all the calls to the blocks
+You can find it all in ./Website/tthings.html where there are all the calls to the blocks.
+
+The site is no longe online.
