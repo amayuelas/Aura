@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Aura</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+	<!-- Font Awesome -->
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+    <!-- Animation -->
+	<link href="css/animate.css" rel="stylesheet" />
+	
+    <!-- MyTemplate CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	
+</head>
+
+<body>
+
+	<header id="header-banner">
+		<nav class="navbar navbar-default navbar-fixed-top fadeIn" role="navigation">
+			<div class="container">
+				
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#dropdown-box-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="navbar-brand">
+						<a href="index.html"><img src="img/logoaura_petit.svg" width="100" height="auto"></a>
+					</div>
+				</div>
+				
+				<!-- Collect the nav links and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="dropdown-box-1">
+					
+					<ul class="nav navbar-nav">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="documentation.html">Documentación</a></li>
+						<li class="active"><a href="tthings.html">Explorar</a></li>
+					</ul>
+					
+				</div>
+				
+			</div> <!-- /.container -->
+		</nav> <!-- /.nav -->
+	</header>
+    
+    
+    <section class="testimonials-banner" id="testimonials"></section>
+			<!-- testimonials -->
+			<section class="testimonials">
+				<div class="container">
+
+					<!-- row -->
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="col-sm-9">
+								<p>
+									El objetivo principal es reducir la frecuencia, la intensidad y la duración de las crisis de la migraña. Mediante la localización  del  grado de humedad, temperatura y  luminosidad de la zona  mediante este mapa interactivo. Como tratamiento preventivo  para una crisis de migraña.
+								</p>
+
+
+							</div>
+							<div class="">
+								<div class="avatar">
+
+								</div>
+							</div>
+						</div>
+					</div>
+			<!-- ./row -->
+            
+        
+          <h3>Explorador</h3>
+					<br>
+					<div class="row">
+						<div class="col-sm-9">
+					<select class="form-control">
+						<option>Centro de Barcelona</option>
+					</select>
+						</div>
+					</div>
+            <p>Mapa interior</p>
+            <br>
+            <div class="row">
+                <div class="col-sm-9">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d374.17570227548254!2d2.17191755915404!3d41.386996797065855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f1189933d5%3A0xdadcb01c53af6c88!2sMobile+World+Centre!5e0!3m2!1ses!2sus!4v1445159214576" width="900" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                <div class="col-sm-3">
+                    <div class="dialog">
+                        <p>Temperatura:<div id="temp_int"></div></p>
+                        <p>Humedad:<div id="hum_int"></div></p>
+                        <p>Recomendación:<div id="rcm_int"></div></p>
+                    </div>
+                </div>
+        </div>
+    <hr>    
+    <p>Mapa exterior</p>
+    <br>
+            <div class="row">
+                <div class="col-sm-9">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.40125339344!2d2.169531014788308!3d41.38709160397745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f1189933d5%3A0xdadcb01c53af6c88!2sMobile+World+Centre!5e0!3m2!1ses!2sus!4v1445159156446" width="900" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                <div class="col-sm-3">
+                    <div class="dialog">
+                        <p>Temperatura:<div id="temp_ext"></div></p>
+                        <p>Humedad:<div id="hum_ext"></div></p>
+						<p>Recomendación:<div id="rcm_ext"></div></p>
+                    </div>
+                </div>
+        </div>
+</div>
+</section>
+	<!-- footer -->
+	<footer id="section-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-lg-12">
+					
+					<p>&copy;&nbspCopyright 2015 - Aura. All rights reserved.</p>
+				</div>
+			</div>	
+		</div>
+	</footer>
+	<!-- /.footer -->
+	<script type="text/javascript">
+
+		function modificar_color(r,g,b, num_id){
+			var settings = {
+				"async": true,
+				"crossDomain": true,
+				"url": "https://thingproxy.freeboard.io/fetch/http://hackathon.ttcloud.net:10026/v1/contextEntities/"+num_id+"/attributes/color",
+				"method": "POST",
+				"headers": {
+					"content-type": "application/json",
+					"accept": "application/json",
+					"fiware-service": "todosincluidos",
+					"fiware-servicepath": "/iot",
+					"cache-control": "no-cache",
+					"postman-token": "ff4b79e0-e47c-36cf-65ce-21981b52327a"
+				},
+				"processData": false,
+				"data": "{\"value\": \""+r+","+g+","+b+"\"}"
+			}
+
+			$.ajax(settings).done(function (response) {
+				console.log(response);
+			});
+
+		}
+
+
+		$(document).ready(function(){
+			var settings_ext = {
+				"async": true,
+				"crossDomain": true,
+				"url": "https://thingproxy.freeboard.io/fetch/http://hackathon.ttcloud.net:10026/v1/contextEntities/HTUQ68/",
+				"method": "GET",
+				"headers": {
+					"accept": "application/json",
+					"fiware-service": "todosincluidos",
+					"cache-control": "no-cache",
+					"postman-token": "1954e4e9-1915-c400-3ee6-20c0a3cebf86"
+				}
+			}
+
+
+			var settings_int = {
+				"async": true,
+				"crossDomain": true,
+				"url": "https://thingproxy.freeboard.io/fetch/http://hackathon.ttcloud.net:10026/v1/contextEntities/8JUJ2U/",
+				"method": "GET",
+				"headers": {
+					"accept": "application/json",
+					"fiware-service": "todosincluidos",
+					"cache-control": "no-cache",
+					"postman-token": "1954e4e9-1915-c400-3ee6-20c0a3cebf86"
+				}
+			}
+
+
+
+			$.ajax(settings_int).done(function (response) {
+
+						var temp_int = response["contextElement"]["attributes"][16]["value"];
+						var hum_int = response["contextElement"]["attributes"][6]["value"];
+
+						$("#temp_int").html(temp_int);
+						$("#hum_int").html(hum_int);
+
+
+
+						if (((hum_int < 10) || (hum_int > 90)) || ((temp_int < 0) || (temp_int > 35)))  {
+							$("#rcm_int").html("No entre en esta habitación");
+							modificar_color(1,0,0,"HTUQ68");
+						}else if (((hum_int < 30) || (temp_int > 70)) || (temp_int > 25)){
+							$("#rcm_int").html("Abstenerse de entrar en esta habitación");
+							modificar_color(1,1,0,"HTUQ68");
+						}else {
+							$("#rcm_int").html("Esta habitación es perfecta para usted");
+							modificar_color(0,1,0,"HTUQ68");
+						}
+					}
+			)
+			$.ajax(settings_ext).done(function (response) {
+
+						var temp_ext = response["contextElement"]["attributes"][16]["value"];
+						var hum_ext = response["contextElement"]["attributes"][6]["value"];
+
+						$("#temp_ext").html(temp_ext);
+						$("#hum_ext").html(hum_ext);
+
+
+
+						if (((hum_ext < 10) || (hum_ext > 90)) || ((temp_ext < 0) || (temp_ext > 35)))  {
+							modificar_color(1,0,0,"JUJ2U");
+							$("#rcm_ext").html("No se acerque a esta zona");
+						}else if (((hum_ext < 30) || (temp_ext > 70)) || (temp_ext > 25)){
+							modificar_color(1,1,0,"JUJ2U");
+							$("#rcm_ext").html("Se recomienda evitar esta zona");
+						}else {
+							$("#rcm_ext").html("Este área es comfortable");
+							modificar_color(0,1,0,"JUJ2U");
+						}
+					}
+
+
+
+			);
+		});
+
+
+	</script>
+	
+	<!-- Core JavaScript Files -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.min.js"></script>	
+	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/wow.min.js"></script>			<!-- Reveal animation when you scroll by wow.js. It need animate.css library -->
+	<!-- Custom Theme JavaScript -->
+	<script src="js/custom.js"></script>
+
+</body>
+
+</html>
